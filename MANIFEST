@@ -1,0 +1,15 @@
+lib/Data/Compare/Plugins/Data/Transactional.pm
+lib/Data/Transactional.pm
+lib/Tie/Hash/Transactional.pm
+CHANGES
+Makefile.PL
+MANIFEST
+README
+t/00_tht.t
+t/01_tht_warnings.t
+t/02_dt_hash_basics.t
+t/03_dt_array_basics.t
+t/04_dt_magic.t
+t/50_data_compare_plugin.t
+t/99_documentation.t
+META.yml

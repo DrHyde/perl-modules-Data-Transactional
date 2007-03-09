@@ -1,0 +1,9 @@
+2001-06-13	Original release of Tie::Hash::Transactional
+
+This only supported transactions in the top level of a multi-level data
+structure.
+
+2004-05-28	Tie::Hash::Transactional 1.1 released.  Only change is
+                documentation updates to note the above limitation, and
+		to also note that it is deprecated
+2004-11-06	First release of Data::Transactional

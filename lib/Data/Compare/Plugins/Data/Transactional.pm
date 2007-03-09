@@ -1,0 +1,76 @@
+package Data::Compare::Plugins::Data::Transactional;
+
+use strict;
+use warnings;
+use diagnostics;
+
+use Data::Compare;
+use UNIVERSAL qw(isa);
+
+our $VERSION = '1.0';
+
+sub register {
+    return
+    [
+        ['Data::Transactional', \&dt_dt_compare],
+	['Data::Transactional', 'ARRAY', \&dt_notdt_compare],
+	['Data::Transactional', 'HASH', \&dt_notdt_compare],
+    ];
+}
+
+sub dt_dt_compare {
+    my($t1, $t2) = @_;
+    Compare(underlying($t1), underlying($t2));
+}
+
+sub dt_notdt_compare {
+    my($dt, $notdt) = @_;
+    ($dt, $notdt) = ($notdt, $dt) if(!isa($dt, 'Data::Transactional'));
+    Compare(underlying($dt), $notdt);
+}
+
+sub underlying {
+    my $tied = shift;
+    return $tied->current_state();
+}
+
+register();
+
+=head1 NAME
+
+Data::Compare::Plugin::Data::Transactional - plugin for Data::Compare to
+handle Data::Transactional objects.
+
+=head1 DESCRIPTION
+
+Enables Data::Compare to Do The Right Thing for Data::Transactional
+objects.
+
+=over 4
+
+=item comparing a Data::Transactional object to another Data::Transactional object
+
+If you compare two Data::Transactional objects, they compare equal if
+their *current* values are the same.  We never look at any checkpoints
+that may be stored.
+
+=item comparing a Data::Transactional object to an ordinary array or hash
+
+These will be considered the same if they have the same current contents -
+again, checkpoints are ignored.
+
+=back 4
+
+=head1 AUTHOR
+
+Copyright (c) 2004 David Cantrell. All rights reserved.
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+=head1 SEE ALSO
+
+L<Data::Compare>
+
+L<Data::Transactional>
+
+=cut
