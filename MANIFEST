@@ -11,4 +11,5 @@ t/02_dt_hash_basics.t
 t/03_dt_array_basics.t
 t/04_dt_magic.t
 t/50_data_compare_plugin.t
-t/99_documentation.t
+t/pod-coverage.t
+t/pod.t

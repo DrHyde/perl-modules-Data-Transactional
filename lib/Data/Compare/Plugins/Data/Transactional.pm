@@ -9,32 +9,32 @@ use UNIVERSAL qw(isa);
 
 our $VERSION = '1.0';
 
-sub register {
+sub _register {
     return
     [
-        ['Data::Transactional', \&dt_dt_compare],
-	['Data::Transactional', 'ARRAY', \&dt_notdt_compare],
-	['Data::Transactional', 'HASH', \&dt_notdt_compare],
+        ['Data::Transactional', \&_dt_dt_compare],
+	['Data::Transactional', 'ARRAY', \&_dt_notdt_compare],
+	['Data::Transactional', 'HASH', \&_dt_notdt_compare],
     ];
 }
 
-sub dt_dt_compare {
+sub _dt_dt_compare {
     my($t1, $t2) = @_;
-    Compare(underlying($t1), underlying($t2));
+    Compare(_underlying($t1), _underlying($t2));
 }
 
-sub dt_notdt_compare {
+sub _dt_notdt_compare {
     my($dt, $notdt) = @_;
     ($dt, $notdt) = ($notdt, $dt) if(!isa($dt, 'Data::Transactional'));
-    Compare(underlying($dt), $notdt);
+    Compare(_underlying($dt), $notdt);
 }
 
-sub underlying {
+sub _underlying {
     my $tied = shift;
     return $tied->current_state();
 }
 
-register();
+_register();
 
 =head1 NAME
 
@@ -46,7 +46,7 @@ handle Data::Transactional objects.
 Enables Data::Compare to Do The Right Thing for Data::Transactional
 objects.
 
-=over 4
+=over
 
 =item comparing a Data::Transactional object to another Data::Transactional object
 
@@ -59,7 +59,7 @@ that may be stored.
 These will be considered the same if they have the same current contents -
 again, checkpoints are ignored.
 
-=back 4
+=back
 
 =head1 AUTHOR
 

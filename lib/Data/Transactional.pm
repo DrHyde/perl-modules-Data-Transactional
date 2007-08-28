@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use diagnostics;
 
-our $VERSION = 0.1;
+our $VERSION = '1.0';
 
 use Data::Dumper;
 
@@ -26,14 +26,14 @@ Data::Transactional - data structures with RDBMS-like transactions
 
 =head1 METHODS
 
-=over 4
+=over
 
 =item new
 
 The constructor.  This takes named parameters.  The only parameter
 so far is:
 
-=over 4
+=over
 
 =item type
 
@@ -133,7 +133,9 @@ Return a reference to the current state of the underlying object.
 
 sub current_state {
     my $self = shift;
-    (tied %{$self})->current_state();
+    return $self->isa('HASH') ?
+        tied(%{$self})->current_state() :
+        tied(@{$self})->current_state();
 }
 
 =back
