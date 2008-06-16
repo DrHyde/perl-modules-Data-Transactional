@@ -3,7 +3,7 @@ package Data::Transactional;
 use strict;
 use warnings;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use Data::Dumper;
 
@@ -201,7 +201,7 @@ distribute it under the same terms as perl itself.
 
 package Data::Transactional::Hash;
 use Storable qw(dclone);
-use strict;use warnings;use diagnostics;
+use strict;use warnings;
 
 sub TIEHASH {
     my $class = shift;
@@ -281,7 +281,7 @@ sub current_state {
 
 package Data::Transactional::Array;
 use Storable qw(dclone);
-use strict;use warnings;use diagnostics;
+use strict;use warnings;
 
 sub TIEARRAY {
     my $class = shift;
