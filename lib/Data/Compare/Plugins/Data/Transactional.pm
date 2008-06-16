@@ -2,12 +2,11 @@ package Data::Compare::Plugins::Data::Transactional;
 
 use strict;
 use warnings;
-use diagnostics;
 
 use Data::Compare;
 use UNIVERSAL qw(isa);
 
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 sub _register {
     return

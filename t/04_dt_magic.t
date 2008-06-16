@@ -2,7 +2,6 @@
 
 use strict;
 use warnings;
-use diagnostics;
 
 use Data::Dumper;
 use Data::Compare;

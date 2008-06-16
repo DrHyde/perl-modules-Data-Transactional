@@ -2,9 +2,8 @@ package Data::Transactional;
 
 use strict;
 use warnings;
-use diagnostics;
 
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 use Data::Dumper;
 
