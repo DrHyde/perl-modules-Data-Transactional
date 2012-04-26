@@ -1,6 +1,12 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME         => 'Data::Transactional',
+    META_MERGE => {
+        license => 'other',
+        resource => {
+	    repository => 'https://github.com/DrHyde/perl-modules-Data-Transactional'
+        }
+    },
     VERSION_FROM => 'lib/Data/Transactional.pm',
     PREREQ_PM    => {
         Storable           => 2.07,  # we use dclone()
