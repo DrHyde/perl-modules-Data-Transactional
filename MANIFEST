@@ -13,3 +13,4 @@ t/04_dt_magic.t
 t/50_data_compare_plugin.t
 t/pod-coverage.t
 t/pod.t
+MANIFEST.SKIP
