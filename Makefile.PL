@@ -3,8 +3,9 @@ WriteMakefile(
     NAME         => 'Data::Transactional',
     META_MERGE => {
         license => 'other',
-        resource => {
-	    repository => 'https://github.com/DrHyde/perl-modules-Data-Transactional'
+        resources => {
+	    repository => 'https://github.com/DrHyde/perl-modules-Data-Transactional',
+	    bugtracker => 'https://github.com/DrHyde/perl-modules-Data-Transactional/issues'
         }
     },
     VERSION_FROM => 'lib/Data/Transactional.pm',
