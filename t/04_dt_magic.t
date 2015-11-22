@@ -7,14 +7,14 @@ use Data::Dumper;
 use Data::Compare;
 use Test::More tests => 16;
 
-use UNIVERSAL qw(isa can);
+use UNIVERSAL;
 use Data::Transactional;
 
 my $tied = Data::Transactional->new(type => 'array');
 
-ok(isa($tied, 'Data::Transactional'), "object has right type");
+ok(UNIVERSAL::isa($tied, 'Data::Transactional'), "object has right type");
 foreach my $method (qw(rollback commit checkpoint commit_all rollback_all)) {
-    ok(can($tied, $method), "got a $method method");
+    ok(UNIVERSAL::can($tied, $method), "got a $method method");
 }
 
 ok(Compare($tied, []), "newly created transactional array is empty");

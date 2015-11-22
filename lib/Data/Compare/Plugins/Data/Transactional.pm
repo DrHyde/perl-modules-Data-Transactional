@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Data::Compare;
-use UNIVERSAL qw(isa);
+use UNIVERSAL;
 
 our $VERSION = '1.01';
 
@@ -24,7 +24,7 @@ sub _dt_dt_compare {
 
 sub _dt_notdt_compare {
     my($dt, $notdt) = @_;
-    ($dt, $notdt) = ($notdt, $dt) if(!isa($dt, 'Data::Transactional'));
+    ($dt, $notdt) = ($notdt, $dt) if(!UNIVERSAL::isa($dt, 'Data::Transactional'));
     Compare(_underlying($dt), $notdt);
 }
 

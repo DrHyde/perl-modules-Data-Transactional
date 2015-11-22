@@ -7,7 +7,6 @@ use Data::Dumper;
 use Data::Compare;
 use Test::More tests => 6;
 
-use UNIVERSAL qw(isa can);
 use Data::Transactional;
 
 my $tied1 = Data::Transactional->new();
