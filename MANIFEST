@@ -1,7 +1,7 @@
 lib/Data/Compare/Plugins/Data/Transactional.pm
 lib/Data/Transactional.pm
 lib/Tie/Hash/Transactional.pm
-CHANGES
+CHANGELOG
 Makefile.PL
 MANIFEST
 README
