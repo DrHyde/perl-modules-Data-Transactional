@@ -1,3 +1,5 @@
+2015-11-22      1.03    Fix tests to work with perl 5.22 and higher
+
 2008-06-16      1.02    Remove more 'use diagnostics' (and forgot to update
                         the CHANGES file)
 

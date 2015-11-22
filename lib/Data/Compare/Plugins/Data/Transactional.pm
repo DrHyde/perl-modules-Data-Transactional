@@ -6,7 +6,7 @@ use warnings;
 use Data::Compare;
 use UNIVERSAL;
 
-our $VERSION = '1.01';
+our $VERSION = '1.03';
 
 sub _register {
     return
