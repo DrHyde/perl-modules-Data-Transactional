@@ -5,21 +5,21 @@ use warnings;
 
 use Data::Dumper;
 use Data::Compare;
-use Test::More tests => 16;
+use Scalar::Util qw(blessed);
+use Test::More tests => 17;
 
-use UNIVERSAL;
 use Data::Transactional;
 
 my $tied = Data::Transactional->new(type => 'array');
 
-ok(UNIVERSAL::isa($tied, 'Data::Transactional'), "object has right type");
+ok(ref($tied) eq 'Data::Transactional', "array object has right type");
 foreach my $method (qw(rollback commit checkpoint commit_all rollback_all)) {
-    ok(UNIVERSAL::can($tied, $method), "got a $method method");
+    ok($tied->can($method), "got a $method method");
 }
-
 ok(Compare($tied, []), "newly created transactional array is empty");
 
 $tied = Data::Transactional->new(); # hash
+ok(ref($tied) eq 'Data::Transactional', "hash object has right type");
 ok(Compare($tied, {}), "newly created transactional hash is empty");
 
 eval { $tied->rollback(); };

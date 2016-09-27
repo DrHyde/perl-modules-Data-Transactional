@@ -4,9 +4,9 @@ use strict;
 use warnings;
 
 use Data::Compare;
-use UNIVERSAL;
+use Scalar::Util qw(blessed);
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 sub _register {
     return
@@ -24,7 +24,7 @@ sub _dt_dt_compare {
 
 sub _dt_notdt_compare {
     my($dt, $notdt) = @_;
-    ($dt, $notdt) = ($notdt, $dt) if(!UNIVERSAL::isa($dt, 'Data::Transactional'));
+    ($dt, $notdt) = ($notdt, $dt) if(!(blessed($dt) && $dt->isa('Data::Transactional')));
     Compare(_underlying($dt), $notdt);
 }
 
