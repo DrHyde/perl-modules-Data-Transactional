@@ -2,7 +2,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME         => 'Data::Transactional',
     META_MERGE => {
-        license => 'other',
+        license => 'open_source',
         resources => {
 	    repository => 'https://github.com/DrHyde/perl-modules-Data-Transactional',
 	    bugtracker => 'https://github.com/DrHyde/perl-modules-Data-Transactional/issues'
